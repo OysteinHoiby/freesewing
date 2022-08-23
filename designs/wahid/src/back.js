@@ -108,11 +108,12 @@ export default (part) => {
 
   if (complete) {
     //Grainline
-    macro('cutonfold', {
-      from: points.cbNeck,
-      to: points.cbHem,
+    macro('grainline', {
+      from: points.cbNeck.shift(0,(points.shoulder.dist(points.cbNeck)*0.1)),
+      to: points.cbHem.shift(0,(points.cbHem.dist(points.hem)*0.1)),
       grainline: true,
-    })
+    }) 
+    //shifted the grainline points by 1% so the grainline stands alone from the sewing line.
     macro('scalebox', { at: new Point(points.logo.x, points.armholePitchCp2.y) })
     if (sa) {
       paths.sa = paths.saBase
